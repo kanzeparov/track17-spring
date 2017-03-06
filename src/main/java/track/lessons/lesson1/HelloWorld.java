@@ -11,4 +11,8 @@ public class HelloWorld {
             System.out.println("arg[" + i + "]=" + args[i]);
         }
     }
+
+    void trt(){
+
+    }
 }

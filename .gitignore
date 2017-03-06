@@ -1,4 +1,5 @@
 target/
 classes/
 *.iml
+Main.java
 .idea
