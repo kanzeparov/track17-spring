@@ -14,12 +14,16 @@ public class MyLinkedList extends List {
      * <p>
      * static - позволяет использовать Node без создания экземпляра внешнего класса
      */
+    private Node header = new Node(null,null,0);
+    private int size;
+
     private static class Node {
         Node prev;
         Node next;
         int val;
 
         Node(Node prev, Node next, int val) {
+
             this.prev = prev;
             this.next = next;
             this.val = val;
@@ -28,6 +32,10 @@ public class MyLinkedList extends List {
 
     @Override
     void add(int item) {
+        Node newNode = new Node(header.next, header, item);
+        newNode.next.prev = newNode;
+        newNode.prev.next = newNode;
+        size++;
     }
 
     @Override
@@ -42,6 +50,6 @@ public class MyLinkedList extends List {
 
     @Override
     int size() {
-        return 0;
+        return size;
     }
 }
