@@ -14,9 +14,8 @@ public class MyLinkedList extends List implements Queue, Stack {
      * static - позволяет использовать Node без создания экземпляра внешнего класса
      */
     private Node header;
-    private Node headerEnd;
-    private Node firstElement;
-    private Node newElement;
+    private Node tail;
+
 
     private static class Node {
         Node prev;
@@ -31,8 +30,8 @@ public class MyLinkedList extends List implements Queue, Stack {
     }
 
     public MyLinkedList() {
-        headerEnd = new Node(null,null,0);
-        header = new Node(headerEnd,headerEnd,0);
+        tail = new Node(null,null,0);
+        header = new Node(tail, tail,0);
         length = 0;
         header.next = header.prev = header;
     }
@@ -40,9 +39,9 @@ public class MyLinkedList extends List implements Queue, Stack {
     @Override
     void add(int item) {
         length++;
-        newElement = new Node(header.prev, header, item);
-        newElement.prev.next = newElement;
-        newElement.next.prev = newElement;
+        tail = new Node(header.prev, header, item);
+        tail.prev.next = tail;
+        tail.next.prev = tail;
     }
 
     @Override
@@ -91,11 +90,11 @@ public class MyLinkedList extends List implements Queue, Stack {
             throw new NoSuchElementException();
         }
 
-        final int value = newElement.val;
+        final int value = tail.val;
         length--;
-        newElement.next.prev = newElement.prev;
-        newElement.prev.next = header;
-        newElement = newElement.prev;
+        tail.next.prev = tail.prev;
+        tail.prev.next = header;
+        tail = tail.prev;
         return value;
     }
 
@@ -107,16 +106,16 @@ public class MyLinkedList extends List implements Queue, Stack {
         length--;
         int value = header.next.val;
         header.next = header.next.next;
-        header.next.next.prev = header;
+        header.next.prev = header;
         return value;
     }
 
     @Override
     public void enqueue(int value) {
         length++;
-        firstElement = new Node(header, header.next, value);
-        header.next.prev = firstElement;
-        header.next = firstElement;
+        tail = new Node(header.prev, header, value);
+        tail.prev.next = tail;
+        header.prev = tail;
     }
 
 }

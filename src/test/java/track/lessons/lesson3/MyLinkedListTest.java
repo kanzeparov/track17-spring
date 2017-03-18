@@ -25,6 +25,7 @@ public class MyLinkedListTest {
         Assert.assertTrue(list.size() == 1);
     }
 
+
     @Test
     public void listAddRemove() throws Exception {
         List list = new MyLinkedList();
@@ -56,4 +57,54 @@ public class MyLinkedListTest {
 
         Assert.assertTrue(list.size() == 0);
     }
+
+
+    @Test
+    public void listStack() throws Exception {
+        Stack stack = new MyLinkedList();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        Assert.assertEquals(3, stack.pop());
+
+        stack.push(3);
+        stack.push(2);
+
+        Assert.assertEquals(2, stack.pop());
+
+        stack.push(2);
+
+        Assert.assertEquals(2, stack.pop());
+        Assert.assertEquals(3, stack.pop());
+    }
+
+    @Test
+    public void listQueue() throws Exception {
+        Queue queue = new MyLinkedList();
+
+        //First IN First OUT
+
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        Assert.assertEquals(1, queue.dequeu());
+        Assert.assertEquals(2, queue.dequeu());
+        Assert.assertEquals(3, queue.dequeu());
+
+        queue.enqueue(4);
+        queue.enqueue(5);
+        queue.enqueue(6);
+
+        Assert.assertEquals(4, queue.dequeu());
+        Assert.assertEquals(5, queue.dequeu());
+
+        queue.enqueue(7);
+        queue.enqueue(8);
+        Assert.assertEquals(6, queue.dequeu());
+    }
+
+
 }
