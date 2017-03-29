@@ -1,11 +1,14 @@
 package track.lessons.lesson3;
+
 import java.util.LinkedList;
+
 /**
  * Created by franck on 15.03.17.
  */
 public class Main {
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
+
         list.add(4);
         list.add(5);
         list.add(6);

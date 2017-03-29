@@ -1,6 +1,8 @@
 package track.lessons.lesson3;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  *
@@ -8,8 +10,9 @@ import java.util.LinkedList;
 public class ListMain {
 
     public static void main(String[] args) {
-        LinkedList<Integer> l = new LinkedList<Integer>();
-        MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.add(12);
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        MyLinkedList sad = new MyLinkedList();
+        sad.add(12);
+        Map<String, String> map = new HashMap<>();
     }
 }
