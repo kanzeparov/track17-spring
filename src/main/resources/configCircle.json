@@ -21,9 +21,9 @@
       "className": "track.container.beans.Gear",
       "properties": {
         "count": {
-          "name": "count",
-          "value": 6,
-          "type": "VAL"
+          "name": "gear1",
+          "value": "gearBean1",
+          "type": "REF"
         }
       }
     },
@@ -32,9 +32,9 @@
       "className": "track.container.beans.Gear",
       "properties": {
         "count": {
-          "name": "count",
-          "value": 8,
-          "type": "VAL"
+          "name": "gear",
+          "value": "gearBean",
+          "type": "REF"
         }
       }
     },
